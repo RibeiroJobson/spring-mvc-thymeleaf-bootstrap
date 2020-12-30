@@ -45,21 +45,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		
-	/*	UserDetails user =
-		 User.builder()
-			.username("maria")
-			.password(encoder.encode("maria"))
-			.roles("ADM")
-			.build();
-		*/
 		auth
 			.jdbcAuthentication()
 			.dataSource(dataSource)
 			.passwordEncoder(encoder);
-		//	.withUser(user);
 		
-
+//		UserDetails user =
+//				 User.builder()
+//					.username("maria")
+//					.password(encoder.encode("maria"))
+//					.roles("ADM")
+//					.build();
 	}
 	
 }
