@@ -10,59 +10,62 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Oferta {
-      
-	  @Id
-	  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	  private Long id;
-	  
-	  private BigDecimal valor;
-	  private LocalDate datadaEntrega;
-	  private String comentario;
-	  
-	  @ManyToOne(fetch = FetchType.LAZY)
-	  private Pedido pedido;
-	  
-		public Pedido getPedido() {
-		  return pedido;
-	    }
 
-    	public void setPedido(Pedido pedido) {
-	    	this.pedido = pedido;
-	    }
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private BigDecimal valor;
+	
+	private LocalDate dataDaEntrega;
+	
+	private String comentario;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Pedido pedido;
 
-		public Long getId() {
-			return id;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public BigDecimal getValor() {
-			return valor;
-		}
+	public BigDecimal getValor() {
+		return valor;
+	}
 
-		public void setValor(BigDecimal valor) {
-			this.valor = valor;
-		}
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
 
-		public LocalDate getDatadaEntrega() {
-			return datadaEntrega;
-		}
+	public LocalDate getDataDaEntrega() {
+		return dataDaEntrega;
+	}
 
-		public void setDatadaEntrega(LocalDate datadaEntrega) {
-			this.datadaEntrega = datadaEntrega;
-		}
+	public void setDataDaEntrega(LocalDate dataDaEntrega) {
+		this.dataDaEntrega = dataDaEntrega;
+	}
 
-		public String getComentario() {
-			return comentario;
-		}
+	public String getComentario() {
+		return comentario;
+	}
 
-		public void setComentario(String comentario) {
-			this.comentario = comentario;
-		}
-	  
-	  
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+	
+	
 }
